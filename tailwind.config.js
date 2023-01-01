@@ -1,68 +1,47 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './src/**/*.{js,ts,jsx,tsx}',
-  ],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  darkMode: 'class',
   theme: {
+    fontFamily: {
+      display: ['Open Sans', 'sans-serif'],
+      body: ['Open Sans', 'sans-serif'],
+    },
     extend: {
-      fill: (theme) => ({
-        red: theme('colors.red.primary'),
-      }),
-      // animation: {
-      //   marquee: 'marquee 30s linear infinite',
-      //   marquee2: 'marquee2 30s linear infinite',
-      //   cart: 'transition: left .5s cubic-bezier(0.820, 0.085, 0.395, 0.895);',
-      // },
-      // keyframes: {
-      //   marquee: {
-      //     '0%': { transform: 'translateX(0%)' },
-      //     '100%': { transform: 'translateX(-100%)' },
-      //   },
-      //   marquee2: {
-      //     '0%': { transform: 'translateX(100%)' },
-      //     '100%': { transform: 'translateX(0%)' },
-      //   },
-      //   slideLeft: {
-      //     '0%': {
-      //       transform: 'translateX(-100%)',
-      //     },
-      //     '100%': {
-      //       transform: 'translateX(0)',
-      //     },
-      //   },
-      // },
-      colors: {
-        // white: {
-        //   pure: '#ffffff',
-        //   light: '#f5f7fb',
-        // },
-        // blue: {
-        //   dark: '#324d67',
-        // },
-        // black: {
-        //   light: '#495057',
-        //   faded: '#00000059',
-        // },
-        // gray: {
-        //   base: '#5f5f5f',
-        //   light: '#ebebeb',
-        //   background: '#fafafa',
-        //   primary: '#dbdbdb',
-        // },
-        // red: {
-        //   primary: '#ed4956 ',
-        // },
+      fontSize: {
+        14: '14px',
       },
-      fontFamily: {
-        Public: ['"Public Sans"', 'sans-serif'],
+      backgroundColor: {
+        'main-bg': '#FAFBFB',
+        'main-dark-bg': '#20232A',
+        'secondary-dark-bg': '#33373E',
+        'light-gray': '#F7F7F7',
+        'half-transparent': 'rgba(0, 0, 0, 0.5)',
       },
-      // boxShadow: {
-      //   '005': '0 0 5px',
-      // },
-      // variants: {
-      //   display: ['group-hover'],
-      // },
+      borderWidth: {
+        1: '1px',
+      },
+      borderColor: {
+        color: 'rgba(0, 0, 0, 0.1)',
+      },
+      width: {
+        400: '400px',
+        760: '760px',
+        780: '780px',
+        800: '800px',
+        1000: '1000px',
+        1200: '1200px',
+        1400: '1400px',
+      },
+      height: {
+        80: '80px',
+      },
+      minHeight: {
+        590: '590px',
+      },
+      backgroundImage: {
+        'hero-pattern': "url('https://i.ibb.co/MkvLDfb/Rectangle-4389.png')",
+      },
     },
   },
   plugins: [],
-}
+};
