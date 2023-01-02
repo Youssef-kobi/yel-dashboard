@@ -1,9 +1,61 @@
-import React from 'react'
+import {
+  ColumnDirective,
+  ColumnsDirective,
+  ContextMenu,
+  Edit,
+  ExcelExport,
+  Filter,
+  GridComponent,
+  Inject,
+  Page,
+  PdfExport,
+  Resize,
+  Sort,
+  Toolbar,
+} from '@syncfusion/ej2-react-grids';
+import React from 'react';
+import Header from '../components/Header';
+import { ordersData, ordersGrid } from '../data/dummy';
 
-const Order = () => {
+const Orders = () => {
   return (
-    <div>Order</div>
-  )
-}
+    <div className='m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl'>
+      <Header category={'Page'} title={'Orders'} />
+      <GridComponent
+        // className='border rounded-xl'
+        id='overviewgrid'
+        dataSource={ordersData}
+        allowPaging
+        allowSorting
+        searchSettings={{
+          ignoreCase: true,
+          fields: [],
+          operator: 'contains',
+          key: '',
+        }}
+        toolbar={['Search']}
+      >
+        <ColumnsDirective>
+          {ordersGrid.map((item, index) => (
+            <ColumnDirective key={index} {...item} />
+          ))}
+        </ColumnsDirective>
+        <Inject
+          services={[
+            Resize,
+            Sort,
+            ContextMenu,
+            Toolbar,
+            Filter,
+            Page,
+            ExcelExport,
+            Edit,
+            PdfExport,
+          ]}
+        />
+      </GridComponent>
+    </div>
+  );
+};
 
-export default Order
+export default Orders;

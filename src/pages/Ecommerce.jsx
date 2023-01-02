@@ -63,10 +63,10 @@ const Ecommerce = () => {
               </p>
             </div>
           </div>
-
-          <div className='mt-10 flex gap-10 flex-wrap justify-center'>
-            <div className='border-r-1 border-color m-4 pr-10'>
-              <div>
+          {/* Fix Responsiveness */}
+          <div className='mt-10 grid grid-cols-1 md:grid-cols-2  gap-10'>
+            <div className='border-r-1 border-color flex flex-col justify-center items-center'>
+              <div className='flex flex-col justify-start'>
                 <p>
                   <span className='text-3xl font-semibold'>$20,394</span>
                   <span className='p-1.5  font-semibold hover:drop-shadow-xl cursor-pointer rounded-full text-white bg-green-400 ml-3 text-xs'>
@@ -74,8 +74,8 @@ const Ecommerce = () => {
                   </span>
                 </p>
                 <p className='text-gray-500 mt-1'>Budget</p>
-              </div>
-              <div className='mt-8'>
+                {/* </div>
+              <div className='mt-8'> */}
                 <p>
                   <span className='text-3xl font-semibold'>$20,394</span>
                 </p>
@@ -93,11 +93,16 @@ const Ecommerce = () => {
                 />
               </div>
               <div className='mt-10'>
-                <button type='button' className='p-3 hover:drop-shadow-xl text-white text-base bg-blue-600 rounded-2xl'>Download Report</button>
+                <button
+                  type='button'
+                  className='p-3 hover:drop-shadow-xl text-white text-base bg-blue-600 rounded-2xl'
+                >
+                  Download Report
+                </button>
               </div>
             </div>
-            <div>
-              <Stacked width='320px' height='360px'  />
+            <div className='flex justify-center items-center'>
+              <Stacked width='320px' height='360px' />
             </div>
           </div>
         </div>

@@ -2,11 +2,9 @@ import {
   SparklineComponent,
   Inject,
   SparklineTooltip,
-  TrackLineSettings,
 } from '@syncfusion/ej2-react-charts';
 
 const SparkLine = ({ id, height, width, color, data, type, currentColor }) => {
-  console.log(data, type);
   return (
     <SparklineComponent
       id={id}
@@ -22,6 +20,7 @@ const SparkLine = ({ id, height, width, color, data, type, currentColor }) => {
       type={type}
       tooltipSettings={{
         visible: true,
+        // eslint-disable-next-line no-template-curly-in-string
         format: ' day : ${x} / data ${yval}',
         TrackLineSettings: {
           visible: true,

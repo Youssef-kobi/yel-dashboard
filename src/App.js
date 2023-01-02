@@ -7,7 +7,10 @@ import {
 } from 'react-router-dom';
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
 import {
+  Customers,
   Ecommerce,
+  Employees,
+  Orders,
   // Orders,
   // Calendar,
   // Employees,
@@ -29,7 +32,7 @@ import { useStateCtx } from './context/ContextProvider';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 function App() {
   const { activeMenu } = useStateCtx();
-  const currentColor = 'blue-600'
+  const currentColor = 'blue-600';
   return (
     <div className=''>
       <BrowserRouter>
@@ -69,8 +72,9 @@ function App() {
                 <Route path='/' element={<Ecommerce />} />
                 <Route path='/ecommerce' element={<Ecommerce />} />
                 {/* Pages */}
-                <Route path='/customers' element='Customers' />
-                <Route path='/products' element='Products' />
+                <Route path='/orders' element={<Orders />} />
+                <Route path='/employees' element={<Employees />} />
+                <Route path='/customers' element={<Customers />} />
                 {/* Apps */}
                 <Route path='/kanban' element='ECommerce' />
 

@@ -3,8 +3,19 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap');
 
-body{
+body {
   margin: 0;
-  padding:0;
-  font-family: "Open Sans", sans-serif;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
 }
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(216, 216, 216);
+  border-radius: 40px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+@import url('https://cdn.syncfusion.com/ej2/material.css');
