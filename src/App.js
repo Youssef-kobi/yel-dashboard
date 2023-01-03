@@ -31,18 +31,24 @@ import { useState } from 'react';
 import { useStateCtx } from './context/ContextProvider';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 function App() {
-  const { activeMenu } = useStateCtx();
-  const currentColor = 'blue-600';
+  const {
+    activeMenu,
+    setThemeSettings,
+    themeSettings,
+    currentColor,
+    currentMode,
+  } = useStateCtx();
   return (
-    <div className=''>
+    <div className={currentMode === 'Dark' ? 'dark' : ''}>
       <BrowserRouter>
         <div className='flex relative dark:bg-main-dark-bg'>
-          <div className='fixed right-4 bottom-4' style={{ zIndex: '1000' }}>
+          <div className='fixed right-4 bottom-4 z-20 '>
             <TooltipComponent content='Settings' position='Top'>
               <button
                 type='button'
-                // onClick={() => setThemeSettings(true)}
-                className={`text-3xl text-white p-3 bg-${currentColor} rounded-full hover:drop-shadow-xl hover:bg-light-gray`}
+                onClick={() => setThemeSettings(true)}
+                style={{ backgroundColor: currentColor }}
+                className={`text-3xl text-white p-3 rounded-full hover:drop-shadow-xl hover:bg-light-gray`}
               >
                 <FiSettings />
               </button>
@@ -67,6 +73,7 @@ function App() {
             </div>
 
             <div>
+              {themeSettings && <ThemeSettings />}
               <Routes>
                 {/* Dashboard */}
                 <Route path='/' element={<Ecommerce />} />

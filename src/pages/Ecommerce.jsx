@@ -3,7 +3,9 @@ import { earningData, SparklineAreaData } from '../data/dummy';
 import { GoPrimitiveDot } from 'react-icons/go';
 import SparkLine from '../components/Charts/SparkLine';
 import Stacked from '../components/Charts/Stacked';
+import { useStateCtx } from '../context/ContextProvider';
 const Ecommerce = () => {
+  const { currentColor } = useStateCtx();
   return (
     <div className='mt-12'>
       <div className='flex flex-wrap lg:flex-nowrap justify-center'>
@@ -15,7 +17,10 @@ const Ecommerce = () => {
             </div>
           </div>
           <div>
-            <button className='p-3 hover:drop-shadow-xl text-white text-base bg-blue-600 rounded-2xl'>
+            <button
+              style={{ backgroundColor: currentColor }}
+              className='p-3 hover:drop-shadow-xl text-white text-base rounded-2xl'
+            >
               Download
             </button>
           </div>
@@ -83,19 +88,20 @@ const Ecommerce = () => {
               </div>
               <div className='mt-5'>
                 <SparkLine
-                  currentColor='#2563eb'
+                  currentColor={currentColor}
                   id='line-sparkline'
                   type='Line'
                   height='80px'
                   width='250px'
                   data={SparklineAreaData}
-                  color='#2563eb'
+                  color={currentColor}
                 />
               </div>
               <div className='mt-10'>
                 <button
                   type='button'
-                  className='p-3 hover:drop-shadow-xl text-white text-base bg-blue-600 rounded-2xl'
+                  style={{ backgroundColor: currentColor }}
+                  className='p-3 hover:drop-shadow-xl text-white text-base  rounded-2xl'
                 >
                   Download Report
                 </button>

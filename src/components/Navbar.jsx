@@ -1,4 +1,5 @@
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
+import { useEffect } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { BsChatLeft } from 'react-icons/bs';
 import { FiShoppingCart } from 'react-icons/fi';
@@ -12,12 +13,16 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => {
     <TooltipComponent content={title} position='BottomRight'>
       <button
         type='button'
-        className={`text-${color} relative text-xl rounded-full p-3 hover:bg-light-gray`}
+        style={{ color: color }}
+        className={`relative text-3xl font-bold rounded-full p-3 hover:bg-light-gray`}
         onClick={customFunc}
       >
-        <span
-          className={`absolute bg-${color} inline-flex rounded-full h-2 w-2 right-2 top-2`}
-        />
+        {title !== 'Menu' && (
+          <span
+            style={{ backgroundColor: color }}
+            className={`absolute inline-flex rounded-full h-2 w-2 right-2 top-2`}
+          />
+        )}
         {icon}
       </button>
     </TooltipComponent>
@@ -25,32 +30,59 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => {
 };
 
 const Navbar = () => {
-  const { activeMenu, setActiveMenu, isClicked, setIsClicked, handleClick } =
-    useStateCtx();
+  const {
+    activeMenu,
+    setActiveMenu,
+    isClicked,
+    handleClick,
+    screenSize,
+    setScreenSize,
+    currentColor,
+  } = useStateCtx();
+  useEffect(() => {
+    const handleResize = () => setScreenSize(window.innerWidth);
+
+    window.addEventListener('resize', handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, [setScreenSize]);
+
+  useEffect(() => {
+    if (screenSize <= 900) {
+      setActiveMenu(false);
+    } else {
+      setActiveMenu(true);
+    }
+  }, [screenSize, setActiveMenu]);
+
+  const handleActiveMenu = () => setActiveMenu(!activeMenu);
   return (
-    <div className='flex justify-between p-2 md:mx-6 relative'>
+    <div className='flex justify-between items-center p-2 md:mx-6 relative'>
       <NavButton
         title='Menu'
-        customFunc={() => setActiveMenu((prevActiveMenu) => !prevActiveMenu)}
-        // color='blue-600'
-        icon={<AiOutlineMenu size={24} />}
+        customFunc={handleActiveMenu}
+        color={currentColor}
+        icon={<AiOutlineMenu />}
       />
-      <div className='flex'>
+      <div className='flex items-center'>
         <NavButton
           title='Cart'
           customFunc={() => handleClick('cart')}
           icon={<FiShoppingCart size={24} />}
+          color={currentColor}
         />
         <NavButton
           title='Chat'
           customFunc={() => handleClick('chat')}
-          color='blue-600'
+          color={currentColor}
           icon={<BsChatLeft size={24} />}
         />
         <NavButton
           title='Notifications'
           customFunc={() => handleClick('notification')}
-          color='blue-600'
+          color={currentColor}
           icon={<RiNotification3Line size={24} />}
         />
         <TooltipComponent content='Profile' position='BottomCenter'>
