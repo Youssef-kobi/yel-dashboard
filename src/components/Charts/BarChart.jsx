@@ -1,9 +1,10 @@
 import {
+  Category,
   ChartComponent,
-  DateTime,
+  ColumnSeries,
+  DataLabel,
   Inject,
   Legend,
-  LineSeries,
   SeriesCollectionDirective,
   SeriesDirective,
   Tooltip,
@@ -11,19 +12,18 @@ import {
 import React from 'react';
 import { useStateCtx } from '../../context/ContextProvider';
 import {
-  lineCustomSeries,
-  LinePrimaryXAxis,
-  LinePrimaryYAxis,
+  barCustomSeries,
+  barPrimaryXAxis,
+  barPrimaryYAxis,
 } from '../../data/dummy';
-
-const LineChart = () => {
+const BarChart = () => {
   const { currentMode, currentColor } = useStateCtx();
   return (
     <ChartComponent
-      id='line-chart'
+      id='bar-chart'
       height='420px'
-      primaryXAxis={LinePrimaryXAxis}
-      primaryYAxis={LinePrimaryYAxis}
+      primaryXAxis={barPrimaryXAxis}
+      primaryYAxis={barPrimaryYAxis}
       chartArea={{ border: { width: '0' } }}
       tooltip={{ enable: true }}
       legendSettings={{
@@ -33,9 +33,9 @@ const LineChart = () => {
       }}
       background={currentMode === 'Dark' ? '#33373E' : '#fff'}
     >
-      <Inject services={[LineSeries, DateTime, Legend, Tooltip]} />
+      <Inject services={[ColumnSeries, DataLabel, Category, Legend, Tooltip]} />
       <SeriesCollectionDirective>
-        {lineCustomSeries.map((item, index) => (
+        {barCustomSeries.map((item, index) => (
           <SeriesDirective key={index} {...item} />
         ))}
       </SeriesCollectionDirective>
@@ -43,4 +43,4 @@ const LineChart = () => {
   );
 };
 
-export default LineChart;
+export default BarChart;

@@ -1,8 +1,8 @@
 import React from 'react';
 import { earningData, SparklineAreaData } from '../data/dummy';
 import { GoPrimitiveDot } from 'react-icons/go';
-import SparkLine from '../components/Charts/SparkLine';
-import Stacked from '../components/Charts/Stacked';
+import SparkLine from '../components/Charts/SparkLineChart';
+import Stacked from '../components/Charts/StackedChart';
 import { useStateCtx } from '../context/ContextProvider';
 const Ecommerce = () => {
   const { currentColor } = useStateCtx();
@@ -68,47 +68,51 @@ const Ecommerce = () => {
               </p>
             </div>
           </div>
-          {/* Fix Responsiveness */}
-          <div className='mt-10 grid grid-cols-1 md:grid-cols-2  gap-10'>
-            <div className='border-r-1 border-color flex flex-col justify-center items-center'>
-              <div className='flex flex-col justify-start'>
-                <p>
-                  <span className='text-3xl font-semibold'>$20,394</span>
-                  <span className='p-1.5  font-semibold hover:drop-shadow-xl cursor-pointer rounded-full text-white bg-green-400 ml-3 text-xs'>
-                    23%
-                  </span>
-                </p>
-                <p className='text-gray-500 mt-1'>Budget</p>
-                {/* </div>
+          <div>
+            <div className='mt-10 grid grid-cols-1 md:grid-cols-2  gap-10'>
+              <div className='border-r-1 border-color flex flex-col justify-center items-center'>
+                <div className='flex flex-col justify-start'>
+                  <p>
+                    <span className='text-3xl font-semibold'>$20,394</span>
+                    <span className='p-1.5  font-semibold hover:drop-shadow-xl cursor-pointer rounded-full text-white bg-green-400 ml-3 text-xs'>
+                      23%
+                    </span>
+                  </p>
+                  <p className='text-gray-500 mt-1'>Budget</p>
+                  {/* </div>
               <div className='mt-8'> */}
-                <p>
-                  <span className='text-3xl font-semibold'>$20,394</span>
-                </p>
-                <p className='text-gray-500 mt-1'>Expense</p>
+                  <p>
+                    <span className='text-3xl font-semibold'>$20,394</span>
+                  </p>
+                  <p className='text-gray-500 mt-1'>Expense</p>
+                </div>
+                <div className='mt-5'>
+                  <SparkLine
+                    currentColor={currentColor}
+                    id='line-sparkline'
+                    type='Line'
+                    height='80px'
+                    width='250px'
+                    data={SparklineAreaData}
+                    color={currentColor}
+                  />
+                </div>
+                <div className='mt-10'>
+                  <button
+                    type='button'
+                    style={{ backgroundColor: currentColor }}
+                    className='p-3 hover:drop-shadow-xl text-white text-base  rounded-2xl'
+                  >
+                    Download Report
+                  </button>
+                </div>
               </div>
-              <div className='mt-5'>
-                <SparkLine
-                  currentColor={currentColor}
-                  id='line-sparkline'
-                  type='Line'
-                  height='80px'
-                  width='250px'
-                  data={SparklineAreaData}
-                  color={currentColor}
-                />
-              </div>
-              <div className='mt-10'>
-                <button
-                  type='button'
-                  style={{ backgroundColor: currentColor }}
-                  className='p-3 hover:drop-shadow-xl text-white text-base  rounded-2xl'
-                >
-                  Download Report
-                </button>
+              <div className='flex justify-center items-center'>
+                <Stacked width='320px' height='360px' />
               </div>
             </div>
-            <div className='flex justify-center items-center'>
-              <Stacked width='320px' height='360px' />
+            <div>
+              <div> holo</div>
             </div>
           </div>
         </div>

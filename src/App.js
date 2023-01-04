@@ -7,10 +7,18 @@ import {
 } from 'react-router-dom';
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
 import {
+  Area,
+  Bar,
+  ColorMapping,
   Customers,
   Ecommerce,
   Employees,
+  Financial,
+  Line,
   Orders,
+  Pie,
+  Pyramid,
+  Stacked,
   // Orders,
   // Calendar,
   // Employees,
@@ -89,14 +97,14 @@ function App() {
                 <Route path='/calendar' element='ECommerce' />
                 <Route path='/color-picker' element='ECommerce' />
                 {/* Charts */}
-                <Route path='/line' element='ECommerce' />
-                <Route path='/area' element='ECommerce' />
-                <Route path='/bar' element='ECommerce' />
-                <Route path='/pie' element='ECommerce' />
-                <Route path='/financial' element='ECommerce' />
-                <Route path='/color-mapping' element='ECommerce' />
-                <Route path='/pyramid' element='ECommerce' />
-                <Route path='/stacked' element='ECommerce' />
+                <Route path='/line' element={<Line />} />
+                <Route path='/area' element={<Area />} />
+                <Route path='/bar' element={<Bar />} />
+                <Route path='/pie' element={<Pie />} />
+                <Route path='/financial' element={<Financial />} />
+                <Route path='/color-mapping' element={<ColorMapping />} />
+                <Route path='/pyramid' element={<Pyramid />} />
+                <Route path='/stacked' element={<Stacked />} />
               </Routes>
             </div>
           </div>

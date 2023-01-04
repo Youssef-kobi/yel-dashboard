@@ -1,9 +1,16 @@
-import React from 'react'
+import React from 'react';
+import { Header } from '../../components';
+import PieChart from '../../components/Charts/PieChart';
 
 const Pie = () => {
   return (
-    <div>Pie</div>
-  )
-}
+    <div className='m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl'>
+      <Header category='Chart' title='Pie' />
+      <div className='w-full'>
+        <PieChart />
+      </div>
+    </div>
+  );
+};
 
-export default Pie
+export default Pie;

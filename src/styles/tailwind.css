@@ -18,4 +18,14 @@ body {
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
-@import url('https://cdn.syncfusion.com/ej2/material.css');
+/* .bg-grid-dark-background {
+  .e-grid {
+    background-color: transparent;
+  }
+} */
+@import url('https://cdn.syncfusion.com/ej2/20.4.38/bootstrap5.css');
+/* .light {
+} */
+/* .dark {
+  @import url('https://cdn.syncfusion.com/ej2/20.4.38/bootstrap5-dark.css');
+} */
