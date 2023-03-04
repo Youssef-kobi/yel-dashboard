@@ -21,7 +21,7 @@ import { customersData, customersGrid } from '../data/dummy';
 const Customers = () => {
   const { currentMode } = useStateCtx();
   return (
-    <div className='m-2 md:m-10 p-2 md:p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl'>
+    <div className='m-2 md:m-10 p-2 md:p-10 bg-half-white dark:bg-secondary-dark-bg rounded-3xl'>
       <Header category={'Page'} title={'Customers'} />
       <GridComponent
         // className='border rounded-xl'

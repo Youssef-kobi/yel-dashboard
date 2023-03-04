@@ -24,17 +24,24 @@ import {
   pieChartData,
 } from '../../data/dummy';
 
-const PieChart = () => {
+const PieChart = ({ size = 420 }) => {
   const { currentMode, currentColor } = useStateCtx();
   const tooltipRender = (args) => {
     let value = (args.point.y / args.series.sumOfPoints) * 100;
     args.text = args.point.x + '' + Math.ceil(value) + '' + '%';
   };
-  const datalabel = { visible: true, position: 'Inside', name: 'text', textStyle: { color: currentColor, fontWeight: '600' }, };
+  const datalabel = {
+    visible: true,
+    position: 'Inside',
+    name: 'text',
+    textStyle: { color: currentColor, fontWeight: '600' },
+  };
   return (
     <AccumulationChartComponent
       id='pie-chart'
-      height='420px'
+      height={`${size}px`}
+      width={`${size}px`}
+      
       // primaryXAxis={pie}
       // primaryYAxis={LinePrimaryYAxis}
       // chartArea={{ border: { width: '0' } }}
@@ -46,11 +53,11 @@ const PieChart = () => {
       }}
       // center={{ x: '60%', y: '60%' }}
       tooltip={{ enable: true }}
-      background={currentMode === 'Dark' ? '#33373E' : '#fff'}
+      // background={currentMode === 'Dark' ? '#33373E' : ''}
     >
       <Inject
         services={[
-          AccumulationLegend,
+          // AccumulationLegend,
           PieSeries,
           AccumulationTooltip,
           AccumulationDataLabel,

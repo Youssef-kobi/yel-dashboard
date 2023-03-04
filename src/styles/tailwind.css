@@ -29,3 +29,117 @@ body {
 /* .dark {
   @import url('https://cdn.syncfusion.com/ej2/20.4.38/bootstrap5-dark.css');
 } */
+.bgImage {
+  background-image: url(undraw.svg);
+}
+
+@media (prefers-color-scheme: dark) {
+  .bgImage {
+    background-image: url(undrawdark.svg);
+    size: cover;
+  }
+}
+
+/* .e-toolbar .e-toolbar-items {
+  background: #00000000;
+  border-radius: 30px;
+}
+.e-toolbar {
+  background: #00000000;
+  border-radius: 30px;
+  padding: 1rem;
+}
+.e-grid {
+  border-radius: 30px;
+}
+
+.e-grid .e-toolbar {
+  border: 0;
+}
+.e-toolbar .e-toolbar-items .e-toolbar-item:not(.e-separator) {
+  min-width: 28px;
+  padding: 4px;
+}
+.e-toolbar .e-toolbar-items .e-toolbar-item .e-tbar-btn.e-btn {
+  height: auto !important;
+  margin: 0;
+  min-height: 32px;
+  min-width: 32px;
+  padding: 0 4px;
+  border-radius: 4px;
+  line-height: 22px;
+} */
+/* body {
+  background-image: linear-gradient(to bottom right, #ffff00, #0066ff);
+} */
+
+.e-grid {
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  border: 1px solid #c7c7cc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 0px #ffffff80;
+  overflow: hidden;
+}
+
+.e-grid .e-toolbar {
+  background-color: rgba(128, 128, 128, 0.5);
+  border-bottom: 1px solid #c7c7cc;
+  padding: 8px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.e-grid .e-toolbar .e-toolbar-item {
+  color: #000000;
+  font-size: 14px;
+  font-weight: 500;
+}
+.e-toolbar .e-toolbar-items {
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+}
+.e-grid .e-toolbar .e-toolbar-item .e-icon {
+  color: #3f3f3f;
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+.e-grid .e-headercell {
+  /* background-color: rgba(247, 247, 247, 0.8); */
+  border-bottom: 1px solid #c7c7cc;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  padding: 12px 0;
+}
+
+.e-grid .e-row {
+  border-bottom: 1px solid #c7c7cc;
+  color: #3f3f3f;
+  font-size: 14px;
+  text-align: center;
+  padding: 12px 0;
+}
+
+.e-grid .e-row:hover {
+  background-color: rgba(247, 247, 247, 0.8);
+  cursor: pointer;
+}
+.e-grid .e-gridpager {
+  background-color: rgba(128, 128, 128, 0.5);
+  border-top: 1px solid #c7c7cc;
+  color: #3f3f3f;
+  font-size: 14px;
+  text-align: center;
+  padding: 12px;
+}
+.e-grid .e-row:nth-child(even) {
+  background-color: rgba(247, 247, 247, 0.8);
+}
+
+.e-grid .e-row:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.8);
+}

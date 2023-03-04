@@ -19,18 +19,19 @@ import { ordersData, ordersGrid } from '../data/dummy';
 
 const Orders = () => {
   return (
-    <div className='m-2 md:m-10 p-2 md:p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl'>
+    <div className='m-2 md:m-10 p-2 md:p-10 bg-half-white dark:bg-secondary-dark-bg rounded-3xl'>
       <Header category={'Page'} title={'Orders'} />
       <GridComponent
         // className='border rounded-xl'
         // // style={{}}
-        // cssClass='bg-white dark:bg-secondary-dark-bg'
+        // cssClass='bg-half-white dark:bg-secondary-dark-bg'
         // style={{background: 'transparent' }}
-        // className='bg-white dark:bg-secondary-dark-bg'
+        // className='bg-half-white dark:bg-secondary-dark-bg'
         id='overviewgrid'
         dataSource={ordersData}
         allowPaging
         allowSorting
+        allowEditing 
         searchSettings={{
           ignoreCase: true,
           fields: [],
@@ -39,7 +40,7 @@ const Orders = () => {
         }}
         toolbar={['Search']}
       >
-        <ColumnsDirective >
+        <ColumnsDirective>
           {ordersGrid.map((item, index) => (
             <ColumnDirective key={index} {...item} />
           ))}

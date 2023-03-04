@@ -32,7 +32,6 @@ const ColorMappingChart = () => {
         textStyle: { color: currentColor, fontWeight: '600' },
       }}
       tooltip={{ enable: true }}
-      background={currentMode === 'Dark' ? '#33373E' : '#fff'}
     >
       <Inject services={[ColumnSeries, Tooltip, Category, Legend]} />
       <SeriesCollectionDirective>

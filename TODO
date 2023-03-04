@@ -1,0 +1,61 @@
+Users:
+
+email
+password
+name
+address
+phone number
+Products:
+
+name
+price
+image
+description
+category
+inventory count
+SKU (Stock Keeping Unit)
+weight
+Orders:
+
+customer details (name, address, email, phone number)
+ordered items (product name, quantity, price)
+order total
+shipping address
+order status (pending, shipped, delivered, etc.)
+order date
+Inventory:
+
+product name
+productId
+current stock level
+reorder level
+reorder quantity
+supplier details
+Categories:
+
+category name
+image
+description
+Promotions:
+
+promotion code
+discount percentage
+start date
+end date
+type (discount, free shipping, etc.)
+usage limit
+Reports:
+
+total revenue
+total orders
+best-selling products
+most popular category
+customer demographics
+Settings:
+
+store name
+currency
+shipping options
+tax rate
+payment methods
+return policy

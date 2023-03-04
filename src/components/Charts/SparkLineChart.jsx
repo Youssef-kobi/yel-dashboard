@@ -23,7 +23,7 @@ const SparkLineChart = ({
       fill={color}
       border={{ color: currentColor, width: 2 }}
       dataSource={data}
-      xName='x'
+      xName={`${type === 'Column'  ? 'xval' : 'x'}`}
       yName='yval'
       type={type}
       tooltipSettings={{

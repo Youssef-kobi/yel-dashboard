@@ -2,10 +2,10 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { useEffect } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { BsChatLeft } from 'react-icons/bs';
-import { FiShoppingCart } from 'react-icons/fi';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import { RiNotification3Line } from 'react-icons/ri';
-import { Cart, Chat, Notification, UserProfile } from '.';
+import { Chat, Notification, UserProfile } from '.';
+import { useAuth } from '../context/auth';
 import { useStateCtx } from '../context/ContextProvider';
 import avatar from '../data/avatar.jpg';
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => {
@@ -39,6 +39,7 @@ const Navbar = () => {
     setScreenSize,
     currentColor,
   } = useStateCtx();
+  const { user } = useAuth();
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
 
@@ -68,12 +69,6 @@ const Navbar = () => {
       />
       <div className='flex items-center'>
         <NavButton
-          title='Cart'
-          customFunc={() => handleClick('cart')}
-          icon={<FiShoppingCart size={24} />}
-          color={currentColor}
-        />
-        <NavButton
           title='Chat'
           customFunc={() => handleClick('chat')}
           color={currentColor}
@@ -90,17 +85,16 @@ const Navbar = () => {
             onClick={() => handleClick('userProfile')}
             className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg'
           >
-            <img src={avatar} alt='avatar' className='rounded-full w-8 h-8' />
+            <img src={user.photoURL} alt='avatar' className='rounded-full w-8 h-8' />
             <p>
-              <span className='text-gray-400 text-14'>Hi,{` `}</span>
-              <span className='text-gray-400 text-bold ml-1 text-14'>
-                Youssef
+              <span className='text-gray-500 text-14'>Hi,{` `}</span>
+              <span className='text-gray-500 text-bold ml-1 text-14'>
+                {user.firstName}
               </span>
             </p>
-            <MdKeyboardArrowDown className='text-gray-400 text-14' />
+            <MdKeyboardArrowDown className='text-gray-500 text-14' />
           </div>
         </TooltipComponent>
-        {isClicked.cart && <Cart />}
         {isClicked.chat && <Chat />}
         {isClicked.notification && <Notification />}
         {isClicked.userProfile && <UserProfile />}

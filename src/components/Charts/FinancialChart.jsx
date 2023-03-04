@@ -43,7 +43,6 @@ const FinancialChart = () => {
       chartArea={{ border: { width: '0' } }}
       crosshair={{ enable: true, lineType: 'Vertical', line: { width: 0 } }}
       tooltip={{ enable: true }}
-      background={currentMode === 'Dark' ? '#33373E' : '#fff'}
     >
       <Inject
         services={[HiloSeries, Tooltip, DateTime, Logarithmic, Crosshair, Zoom]}

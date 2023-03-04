@@ -28,7 +28,6 @@ const AreaChart = () => {
         background: '#d5d5d54d',
         textStyle: { color: currentColor, fontWeight: '600' },
       }}
-      background={currentMode === 'Dark' ? '#33373E' : '#fff'}
     >
       <Inject services={[SplineAreaSeries, DateTime, Legend]} />
       <SeriesCollectionDirective>

@@ -31,7 +31,6 @@ const BarChart = () => {
         background: '#d5d5d54d',
         textStyle: { color: currentColor, fontWeight: '600' },
       }}
-      background={currentMode === 'Dark' ? '#33373E' : '#fff'}
     >
       <Inject services={[ColumnSeries, DataLabel, Category, Legend, Tooltip]} />
       <SeriesCollectionDirective>
